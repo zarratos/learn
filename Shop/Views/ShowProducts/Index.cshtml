@@ -1,0 +1,42 @@
+﻿@using Shop.Extensions
+@using Shop.Models
+@model IEnumerable<ProductModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        #RoundedCorner {
+            width: 307px;
+            height: 230px;
+            border: 3px solid #85A0C9;
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @foreach (var product in Model)
+        {
+            <div>
+                @Html.Image(product.ImageData)
+            </div>
+            <div>
+                @product.ProductName
+            </div>
+            <div>
+                @product.ProductPrice, сом
+            </div>
+        }
+    </div>
+</body>
+</html>

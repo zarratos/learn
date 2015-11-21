@@ -1,0 +1,62 @@
+﻿using System.Collections.Generic;
+using DAL;
+using DAL.Repository;
+using DAL.Repository.Interfaces;
+using Shop.DA.Interfaces;
+using Shop.Mapping;
+using Shop.Models;
+
+namespace Shop.DA
+{
+    public class CategoryDataAccess : DataAccessBase, ICategoryDataAccess
+    {
+        private readonly ICategoryRepository _repository;
+        public CategoryDataAccess(DtoMapper mapper, CategoryRepository categoryRepository)
+            : base(mapper)
+        {
+            _repository = categoryRepository;
+        }
+
+        public IEnumerable<CategoryModel> GetAllEntities()
+        {
+            var entities = _repository.GetAllEntities();
+            return Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(entities);
+        }
+
+        public CategoryModel GetEntityById(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int AddNewEntity(CategoryModel obj)
+        {
+            var entity = Mapper.Map<CategoryModel, Category>(obj);
+            return _repository.AddNewEntity(entity);
+        }
+
+        public void UpdateEntity(CategoryModel obj)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteEntity(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<CategoryModel> GetCategoriesByParentId(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool IsParentCategory(CategoryModel obj)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public CategoryModel GetCategoryById(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}
