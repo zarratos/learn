@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop", "Shop\Shop.csproj", "{A7B7C3E1-B4D8-4CDE-84D0-FB1A2984C273}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{52AF042A-EB7A-4482-884C-1CDF63C22F38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner", "Runner\Runner.csproj", "{219B0EFB-9384-4C3C-AD31-40870A9DB5A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{52AF042A-EB7A-4482-884C-1CDF63C22F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52AF042A-EB7A-4482-884C-1CDF63C22F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52AF042A-EB7A-4482-884C-1CDF63C22F38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{219B0EFB-9384-4C3C-AD31-40870A9DB5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{219B0EFB-9384-4C3C-AD31-40870A9DB5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{219B0EFB-9384-4C3C-AD31-40870A9DB5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{219B0EFB-9384-4C3C-AD31-40870A9DB5A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
