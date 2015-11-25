@@ -1,4 +1,5 @@
-﻿using System.Drawing.Printing;
+﻿using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web.Mvc;
 using DAL.Repository;
@@ -6,6 +7,7 @@ using Shop.DA;
 using Shop.DA.Interfaces;
 using Shop.Mapping;
 using Shop.Models;
+using Shop.ViewModels;
 
 namespace Shop.Controllers
 {
@@ -21,27 +23,38 @@ namespace Shop.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.ParentCategoryId = _dataAccess.GetAllEntities().Select(o => new SelectListItem()
-            {
-                Text = o.CategoryName,
-                Value = o.ParentCategoryId.ToString(),
-            });
-            return View();
+            var model = MakeCategoryList();
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Index(CategoryModel model)
+        public ActionResult Index(AddCategoryViewModel model)
         {
-            if (model.CategoryId != 0)
-                model.ParentCategoryId = model.CategoryId;
-            _dataAccess.AddNewEntity(model);
-            return View();
+            _dataAccess.AddNewEntity(model.Category);
+            model = MakeCategoryList();
+            return View(model);
         }
 
-        public JsonResult GetParentCategories()
+        private AddCategoryViewModel MakeCategoryList()
         {
-            var categoryList = _dataAccess.GetAllEntities();
-            return Json(categoryList, JsonRequestBehavior.AllowGet);
+            var model = new AddCategoryViewModel();
+            model.CategoriesList =
+                _dataAccess.GetAllEntities()
+                    .Select(cat => new SelectListItem { Text = cat.CategoryName, Value = cat.CategoryId.ToString()});
+            model.Category = new CategoryModel();
+            model.Categories = _dataAccess.GetAllEntities();
+            return model;
+        }
+
+        public ActionResult DeleteCategory(int categoryId)
+        {
+            _dataAccess.DeleteEntity(categoryId);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateCategory(CategoryModel category)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

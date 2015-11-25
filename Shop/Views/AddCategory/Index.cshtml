@@ -1,4 +1,5 @@
-﻿@model Shop.Models.CategoryModel
+﻿@using Shop.Models
+@model Shop.ViewModels.AddCategoryViewModel
 
 @{
     Layout = null;
@@ -13,13 +14,49 @@
 </head>
 <body>
 <div>
+    <div>
+        <table>
+            <caption>
+                <tr>
+                    <th>
+                        Номер
+                    </th>
+                    <th>
+                        Категория
+                    </th>
+                    <th>
+                        Удалить
+                    </th>
+                </tr>
+            </caption>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@Html.TextBox("Ttt", @category.CategoryName)</td>
+                    <td>@Html.ActionLink("Обновить", "UpdateCategory", new { category = category })</td>
+                    <td>@Html.ActionLink("Удалить", "DeleteCategory", new {categoryId = category.CategoryId})</td>
+                </tr>
+            }
+        </table>
+    </div>
     <form action="/AddCategory/Index" enctype="multipart/form-data" method="post">
         <div>
-            @Html.TextBoxFor(o => o.CategoryName)
+            <div>
+                Название категории:
+            </div>
+            <div>
+                @Html.TextBoxFor(o => o.Category.CategoryName)
+            </div>
         </div>
         <div>
-                        @Html.DropDownListFor(o => o.ParentCategoryId, CategoryList)
-@*            @Html.DropDownList("CategoryList", "--Выберите категорию--")*@
+            <div>
+                Родительская категория:
+            </div>
+            <div>
+                @Html.DropDownListFor(o => o.Category.ParentCategoryId, Model.CategoriesList, "--Нет родительской категории--")
+                @*            @Html.DropDownList("CategoryList", "--Выберите категорию--")*@
+            </div>
         </div>
         <div>
             <button type="submit">Сохранить</button>

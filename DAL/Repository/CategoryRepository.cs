@@ -13,7 +13,7 @@ namespace DAL.Repository
 
         public override Category GetEntityById(int id)
         {
-            throw new System.NotImplementedException();
+            return DbContext.Categories.FirstOrDefault(o => o.CategoryId == id);
         }
 
         public override int AddNewEntity(Category obj)
@@ -29,7 +29,9 @@ namespace DAL.Repository
 
         public override void DeleteEntity(int id)
         {
-            throw new System.NotImplementedException();
+            var entity = GetEntityById(id);
+            DbContext.Categories.Remove(entity);
+            DbContext.SaveChanges();
         }
     }
 }

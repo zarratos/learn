@@ -41,7 +41,7 @@ namespace Shop.DA
 
         public void DeleteEntity(int id)
         {
-            throw new System.NotImplementedException();
+            _repository.DeleteEntity(id);
         }
 
         public IEnumerable<CategoryModel> GetCategoriesByParentId(int id)
