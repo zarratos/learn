@@ -31,8 +31,7 @@ namespace Shop.Controllers
         public ActionResult Index(AddCategoryViewModel model)
         {
             _dataAccess.AddNewEntity(model.Category);
-            model = MakeCategoryList();
-            return View(model);
+            return RedirectToAction("Index", "ShowCategory");
         }
 
         private AddCategoryViewModel MakeCategoryList()

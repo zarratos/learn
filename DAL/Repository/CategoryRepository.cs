@@ -24,7 +24,10 @@ namespace DAL.Repository
 
         public override void UpdateEntity(Category obj)
         {
-            throw new System.NotImplementedException();
+            var entity = GetEntityById(obj.CategoryId);
+            entity.CategoryName = obj.CategoryName;
+            entity.ParentCategoryId = obj.ParentCategoryId;
+            DbContext.SaveChanges();
         }
 
         public override void DeleteEntity(int id)

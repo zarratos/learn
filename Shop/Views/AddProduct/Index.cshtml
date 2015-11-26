@@ -14,7 +14,7 @@
     <script type="text/javascript">
         function fillCompaniesDropdown() {
             console.log('fill');
-            $.getJSON('@Url.Action("GetActiveCompanies")', null, function(data) {
+            $.getJSON('@Url.Action("GetCategories")', null, function(data) {
                 data = $.map(data, function(item, a) {
                     return "<option value=" + item.CategoryId + ">" + item.CategoryName + "</option>";
                 });

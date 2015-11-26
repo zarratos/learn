@@ -28,11 +28,11 @@
                 Родительская категория:
             </div>
             <div>
-                @Html.DropDownListFor(o => o.Category.ParentCategoryId, Model.CategoriesList, "--Нет родительской категории--")
+                @Html.DropDownListFor(o => o.Category.ParentCategoryId, Model.CategoriesList, "--Нет--")
             </div>
         </div>
         <div>
-            <button type="submit">Сохранить</button>
+            <button type="submit">Добавить</button>
         </div>
     </form>
 </div>

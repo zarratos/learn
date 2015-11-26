@@ -36,7 +36,8 @@ namespace Shop.DA
 
         public void UpdateEntity(CategoryModel obj)
         {
-            throw new System.NotImplementedException();
+            var entity = Mapper.Map<CategoryModel, Category>(obj);
+            _repository.UpdateEntity(entity);
         }
 
         public void DeleteEntity(int id)

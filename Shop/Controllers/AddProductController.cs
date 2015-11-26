@@ -11,13 +11,15 @@ namespace Shop.Controllers
 {
     public class AddProductController : Controller
     {
-        private readonly IProductDataAccess _dataAccess;
+        private readonly IProductDataAccess _productDataAccess;
+        private readonly ICategoryDataAccess _caregoryDataAccess;
         //
         // GET: /AddProduct/
 
         public AddProductController()
         {
-            _dataAccess = new ProductDataAccess(new DtoMapper(), new ProductRepository());
+            _productDataAccess = new ProductDataAccess(new DtoMapper(), new ProductRepository());
+            _caregoryDataAccess = new CategoryDataAccess(new DtoMapper(), new CategoryRepository());
         }
 
         public ActionResult Index()
@@ -34,18 +36,14 @@ namespace Shop.Controllers
                 model.ImageData = new byte[image.ContentLength];
                 image.InputStream.Read(model.ImageData, 0, image.ContentLength);
             }
-            _dataAccess.AddNewEntity(model);
+            _productDataAccess.AddNewEntity(model);
             return View();
         }
 
-        public JsonResult GetActiveCompanies()
+        public JsonResult GetCategories()
         {
-            var a = new List<CategoryModel>();
-            for (int i = 0; i < 5; i++)
-            {
-                a.Add(new CategoryModel {CategoryId = i+1, CategoryName = "Name" + i});
-            }
-            return Json(a, JsonRequestBehavior.AllowGet);
+            var categoryList = _caregoryDataAccess.GetAllEntities();
+            return Json(categoryList, JsonRequestBehavior.AllowGet);
         }
     }
 }
