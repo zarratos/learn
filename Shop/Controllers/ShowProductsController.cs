@@ -5,6 +5,7 @@ using DAL.Repository;
 using Shop.DA;
 using Shop.DA.Interfaces;
 using Shop.Mapping;
+using Shop.Models;
 
 namespace Shop.Controllers
 {

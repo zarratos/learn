@@ -1,0 +1,74 @@
+﻿@using Shop.Extensions
+@using Shop.Models
+@model Shop.ViewModels.EditCategoryViewModel
+
+@functions {
+    private string GetCategoryName(CategoryModel model)
+    {
+        if (model.ParentCategoryId != null)
+        {
+            var firstOrDefault = @Model.Categories.FirstOrDefault(o => o.ParentCategoryId == model.ParentCategoryId);
+            if (firstOrDefault != null) return firstOrDefault.CategoryName;
+        }
+        return "Huy";
+    }
+
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        $('#categoryName').val();
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            <table>
+                <caption>
+                    <tr>
+                        <th>
+                            Номер
+                        </th>
+                        <th>
+                            Категория
+                        </th>
+                        <th>
+                            Родительская категория
+                        </th>
+                        <th>
+                            Обновить
+                        </th>
+                        <th>
+                            Удалить
+                        </th>
+                    </tr>
+                </caption>
+                @foreach (var category in Model.Categories)
+                {
+                    <tr>
+                        <td>@category.CategoryId</td>
+                        <td>@Html.TextBox("categoryName", @category.CategoryName)</td>
+                        <td>
+@*                            @Html.DropDownListCustom(category.ParentCategoryId, Model.CategoriesList)*@
+                            @Html.DropDownList("ddl", new SelectList(Model.CategoriesList, "Value", "Text", category.ParentCategoryId), "--Не выбрано--")
+@*                            @Html.DropDownListFor(o => o.Categories.FirstOrDefault(b => b.CategoryId == category1.CategoryId), Model.CategoriesList)*@
+                        </td>
+                        <td>@Html.ActionLink("Обновить", "UpdateCategory", new { categoryId = category.CategoryId, categoryName = category.CategoryName, categoryParentId = category.ParentCategoryId })</td>
+                        <td>@Html.ActionLink("Удалить", "DeleteCategory", new { categoryId = category.CategoryId })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

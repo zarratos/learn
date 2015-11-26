@@ -56,7 +56,8 @@ namespace Shop.DA
 
         public CategoryModel GetCategoryById(int id)
         {
-            throw new System.NotImplementedException();
+            var entity = Mapper.Map<Category, CategoryModel>(_repository.GetEntityById(id));
+            return entity;
         }
     }
 }

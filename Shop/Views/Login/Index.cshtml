@@ -1,0 +1,44 @@
+﻿@model  Shop.Models.UserModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<div>
+    @using (@Html.BeginForm("Index", "Login", FormMethod.Post, new {@class = "form-control"}))
+    {
+        <fieldset>
+            <legend>Вход</legend>
+            <div>
+                <div>
+                    Логин:
+                </div>
+                <div>
+                    @Html.TextBoxFor(o => o.UserName)
+                    @Html.ValidationMessageFor(o => o.UserName)
+                </div>
+            </div>
+            <div>
+                <div>
+                    Пароль:
+                </div>
+                <div>
+                    @Html.PasswordFor(o => o.Password)
+                    @Html.ValidationMessageFor(o => o.Password)
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Войти"/>
+            </div>
+        </fieldset>
+    }
+</div>
+</body>
+</html>

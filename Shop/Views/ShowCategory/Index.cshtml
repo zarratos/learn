@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Shop.Models.CategoryModel>
+﻿@model IEnumerable<Shop.Models.ShowCategoryModel>
 @{
     Layout = null;
 }
@@ -12,12 +12,38 @@
 </head>
 <body>
     <div>
-        @foreach (var category in Model)
-        {
-            <div>
-                @category.CategoryName
-            </div>
-        }
+        <table>
+            <caption>
+                <tr>
+                    <th>
+                        Номер
+                    </th>
+                    <th>
+                        Категория
+                    </th>
+                    <th>
+                        Родительская категория
+                    </th>
+                    <th>
+                        Действие
+                    </th>
+                    <th>
+                        Удалить
+                    </th>
+                </tr>
+            </caption>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.ParentCategoryName</td>
+                    <td>@Html.ActionLink("Изменить", "EditCategory", new { categoryId = category.CategoryId })</td>
+                    <td>@Html.ActionLink("Удалить", "DeleteCategory", new { categoryId = category.CategoryId })</td>
+                </tr>
+            }
+        </table>
+
     </div>
 </body>
 </html>

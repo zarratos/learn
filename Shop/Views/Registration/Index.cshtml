@@ -1,0 +1,23 @@
+﻿@model Shop.Models.UserModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (@Html.BeginForm("Index", "Registration", FormMethod.Post))
+        {
+            @Html.TextBoxFor(o => o.Email)
+            <input type="submit" value="Зарегистрировать"/>
+        }
+    </div>
+</body>
+</html>

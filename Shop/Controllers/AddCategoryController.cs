@@ -42,6 +42,7 @@ namespace Shop.Controllers
                 _dataAccess.GetAllEntities()
                     .Select(cat => new SelectListItem { Text = cat.CategoryName, Value = cat.CategoryId.ToString()});
             model.Category = new CategoryModel();
+            model.Category.CategoryList = model.CategoriesList;
             model.Categories = _dataAccess.GetAllEntities();
             return model;
         }
@@ -52,7 +53,7 @@ namespace Shop.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult UpdateCategory(CategoryModel category)
+        public ActionResult UpdateCategory(int categoryid, string categoryname, int? categoryparentid)
         {
             throw new System.NotImplementedException();
         }

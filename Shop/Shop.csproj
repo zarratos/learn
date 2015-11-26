@@ -134,6 +134,10 @@
   <ItemGroup>
     <Compile Include="Controllers\AddCategoryController.cs" />
     <Compile Include="Controllers\AddProductController.cs" />
+    <Compile Include="Controllers\EditCategoryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\ShowCategoryController.cs" />
     <Compile Include="Controllers\ShowProductsController.cs" />
     <Compile Include="DA\CategoryDataAccess.cs" />
@@ -150,8 +154,11 @@
     <Compile Include="Mapping\IMapper.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddCategoryViewModel.cs" />
+    <Compile Include="ViewModels\EditCategoryViewModel.cs" />
+    <Compile Include="Models\ShowCategoryModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -173,9 +180,15 @@
     <Content Include="Views\ShowProducts\Index.cshtml" />
     <Content Include="Views\ShowCategory\Index.cshtml" />
     <Content Include="Views\AddCategory\Index.cshtml" />
+    <Content Include="Views\EditCategory\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Auth\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
