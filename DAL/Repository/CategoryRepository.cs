@@ -32,6 +32,8 @@ namespace DAL.Repository
 
         public override void DeleteEntity(int id)
         {
+            var products = DbContext.Products.Where(o => o.CategoryId == id);
+            DbContext.Products.RemoveRange(products);
             var entity = GetEntityById(id);
             DbContext.Categories.Remove(entity);
             DbContext.SaveChanges();

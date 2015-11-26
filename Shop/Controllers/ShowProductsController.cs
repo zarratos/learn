@@ -22,7 +22,7 @@ namespace Shop.Controllers
 
         public ActionResult Index(int categoryId)
         {
-            var productList = _dataAccess.GetAllEntities();
+            var productList = _dataAccess.GetProductsByCategoryId(categoryId);
             return View(productList);
         }
 
