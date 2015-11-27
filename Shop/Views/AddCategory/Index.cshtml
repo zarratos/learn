@@ -1,5 +1,4 @@
-﻿@using Shop.Models
-@model Shop.ViewModels.AddCategoryViewModel
+﻿@model Shop.ViewModels.AddCategoryViewModel
 
 @{
     Layout = null;
@@ -18,20 +17,16 @@
 <div>
     <form action="/AddCategory/Index" enctype="multipart/form-data" method="post" class="form-group">
         <div>
-            <label class="label-info">
+            <label class="label-info" style="width:50%;">
                 Название категории:
-                <div>
-                    @Html.TextBoxFor(o => o.Category.CategoryName, new { @class = "text-left" })
-                </div>
+                @Html.TextBoxFor(o => o.Category.CategoryName, new { @class = "form-control", })
             </label>
         </div>
         <div>
-            <div>
-                <label class="label-info">
-                    Родительская категория:
-                    @Html.DropDownListFor(o => o.Category.ParentCategoryId, Model.CategoriesList, "--Нет--", new { @class = "dropdown-header" })
-                </label>
-            </div>
+            <label class="label-info" style="width:50%;">
+                Родительская категория:
+                @Html.DropDownListFor(o => o.Category.ParentCategoryId, Model.CategoriesList, "--Нет--", new { @class = "form-control" })
+            </label>
         </div>
         <div>
             <button type="submit" class="btn-default">Добавить</button>

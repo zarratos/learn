@@ -156,6 +156,7 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\UserValidator.cs" />
     <Compile Include="ViewModels\AddCategoryViewModel.cs" />
     <Compile Include="ViewModels\EditCategoryViewModel.cs" />
     <Compile Include="Models\ShowCategoryModel.cs" />
@@ -196,14 +197,14 @@
     <Content Include="Views\ShowCategory\Index.cshtml" />
     <Content Include="Views\AddCategory\Index.cshtml" />
     <Content Include="Views\EditCategory\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Auth\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

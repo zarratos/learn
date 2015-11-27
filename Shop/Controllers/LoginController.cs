@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Shop.Models;
+using Shop.Validators;
 
 namespace Shop.Controllers
 {
@@ -16,8 +17,10 @@ namespace Shop.Controllers
         [HttpPost]
         public ActionResult Index(UserModel model)
         {
+            if (!UserValidator.UserEmptyLoginValidate(model, this.ModelState))
+                return View();
             
-            return View();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

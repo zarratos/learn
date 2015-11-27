@@ -9,33 +9,35 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 <div>
-    @using (@Html.BeginForm("Index", "Login", FormMethod.Post, new {@class = "form-control"}))
+    @using (@Html.BeginForm("Index", "Login", FormMethod.Post, new {@class = "form-control", @style="width: 98%; height: 100%; margin: 1%"}))
     {
         <fieldset>
             <legend>Вход</legend>
             <div>
-                <div>
+                <div class="label-info">
                     Логин:
                 </div>
                 <div>
-                    @Html.TextBoxFor(o => o.UserName)
-                    @Html.ValidationMessageFor(o => o.UserName)
+                    @Html.TextBoxFor(o => o.UserName, new {@class="form-control"})
+                    @Html.ValidationMessageFor(o => o.UserName, null, new { @class = "text-danger" })
                 </div>
             </div>
             <div>
-                <div>
+                <div class="label-info">
                     Пароль:
                 </div>
                 <div>
-                    @Html.PasswordFor(o => o.Password)
-                    @Html.ValidationMessageFor(o => o.Password)
+                    @Html.PasswordFor(o => o.Password, new {@class="form-control"})
+                    @Html.ValidationMessageFor(o => o.Password, null, new {@class="text-danger"})
                 </div>
             </div>
             <div>
-                <input type="submit" value="Войти"/>
+                <input type="submit" value="Войти" class="btn-default"/>
             </div>
         </fieldset>
     }
