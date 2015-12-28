@@ -1,15 +1,14 @@
-﻿@using Shop.Models
+﻿@using System.Activities.Expressions
+@using System.Runtime.InteropServices
+@using Shop.Models
 @model ProductModel
-
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width" />
     <script src="~/Scripts/jquery-2.1.4.js"></script>
     <script type="text/javascript">
         function fillCompaniesDropdown() {
@@ -21,7 +20,7 @@
                 $("#CategoryId").html(data.join(""));
             });
         }
-        
+
         $(document).ready(
             function() {
                 fillCompaniesDropdown();
@@ -30,48 +29,54 @@
         );
     </script>
     <title>Index</title>
-</head>
+    <style>
+     body 
+            .parent {
+                margin: 5px;
+            }
+       </style>
+    </head>
 <body>
-<div>
-    <form action="/AddProduct/Index" enctype="multipart/form-data" method="post">
-        <div>
-            @Html.LabelFor(o => o.ProductName, "Название товара")
-        </div>
-        <div>
-            @Html.TextBoxFor(x => x.ProductName)
-        </div>
-        <div>
-            @Html.LabelFor(o => o.ProductDescription, "Описание товара")
-        </div>
-        <div>
-            @Html.TextBoxFor(x => x.ProductDescription)
-        </div>
-        <div>
-            @Html.LabelFor(o => o.ProductPrice, "Цена")
-        </div>
-        <div>
-            @Html.TextBoxFor(x => x.ProductPrice)
-        </div>
-        <div>
-            @Html.LabelFor(o => o.ProductDiscount, "Скидка, %")
-        </div>
-        <div>
-            @Html.TextBoxFor(x => x.ProductDiscount)
-        </div>
-        <div>
-            @Html.LabelFor(o => o.CategoryId, "Категория")
-        </div>
-        <div>
-            @*    @Html.DropDownListFor(x => x.CategoryIdId, Categories)*@
-            <select class="form-control" id="CategoryId" name="CategoryId"></select>
-        </div>
-        <div>
-            <input type="file" id="Image" name="Image" />
-        </div>
-        <div>
-            <button type="submit">Сохранить</button>
-        </div>
-    </form>
-</div>
+    <div class="parent">
+        <form action="/AddProduct/Index" enctype="multipart/form-data" method="post">
+            <div class="parent">
+                @Html.LabelFor(o => o.ProductName, "Название товара")
+            </div>
+            <div class="parent">
+                @Html.TextBoxFor(x => x.ProductName)
+            </div>
+            <div class="parent">
+                @Html.LabelFor(o => o.ProductDescription, "Описание товара")
+            </div>
+            <div class="parent">
+                @Html.TextBoxFor(x => x.ProductDescription)
+            </div>
+            <div class="parent">
+                @Html.LabelFor(o => o.ProductPrice, "Цена")
+            </div>
+            <div class="parent">
+                @Html.TextBoxFor(x => x.ProductPrice)
+            </div>
+            <div class="parent">
+                @Html.LabelFor(o => o.ProductDiscount, "Скидка, %")
+            </div>
+            <div class="parent">
+                @Html.TextBoxFor(x => x.ProductDiscount)
+            </div>
+            <div class="parent">
+                @Html.LabelFor(o => o.CategoryId, "Категория")
+            </div>
+            <div class="parent">
+                @*    @Html.DropDownListFor(x => x.CategoryIdId, Categories)*@
+                <select class="form-control" id="CategoryId" name="CategoryId"></select>
+            </div>
+            <div class="parent">
+                <input type="file" id="Image" name="Image" />
+            </div>
+            <div class="parent">
+                <button type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
